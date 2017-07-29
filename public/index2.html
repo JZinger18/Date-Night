@@ -3,12 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <title>Sample FirebaseUI App</title>
-  
+
   <!-- jquery -->
   <script  src="http://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
 
   <!-- FireBase -->
   <script src="https://www.gstatic.com/firebasejs/4.1.3/firebase.js"></script>
+  <!-- <script src="https://cdn.firebase.com/libs/firebaseui/2.3.0/firebaseui.js"></script>
+  <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/2.3.0/firebaseui.css"/>
+  <script src="https://www.gstatic.com/firebasejs/ui/2.3.0/firebase-ui-auth__en.js"></script>
+<link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/2.3.0/firebase-ui-auth.css" /> --> -->
 
   <!-- Latest compiled and minified CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -27,9 +31,10 @@
   <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.amber-lime.min.css" />
 
 
-   
-  <!-- Link to Javascript page --> 
-  <script src="script.js"></script>
+
+
+  <!-- Link to Javascript page -->
+
 </head>
 <body>
 
@@ -95,7 +100,7 @@
         }
 
         .mdl-select.is-focused .mdl-select__input { outline: none; }
-        .mdl-select.is-invalid .mdl-select__input { 
+        .mdl-select.is-invalid .mdl-select__input {
           border-color: rgb(222, 50, 38);
             box-shadow: none;
           }
@@ -117,7 +122,7 @@
           width: 100%;
           overflow: hidden;
           white-space: nowrap;
-          text-align: left; 
+          text-align: left;
         }
 
         .mdl-select.is-dirty .mdl-select__label { visibility: hidden; }
@@ -165,11 +170,11 @@
         .mdl-select.is-focused .mdl-select__label:after {
           left: 0;
           visibility: visible;
-          width: 100%; 
+          width: 100%;
         }
 
         .mdl-select.is-invalid .mdl-select__label:after {
-          background-color: rgb(222, 50, 38); 
+          background-color: rgb(222, 50, 38);
         }
 
         .mdl-select__error {
@@ -193,11 +198,11 @@
           -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
           transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
           display: inline-block;
-          max-width: 0.1px; 
+          max-width: 0.1px;
         }
 
         .mdl-select.is-focused .mdl-select__expandable-holder, .mdl-select.is-dirty .mdl-select__expandable-holder {
-          max-width: 600px; 
+          max-width: 600px;
         }
 
         .mdl-select__expandable-holder .mdl-select__label:after {
@@ -206,7 +211,8 @@
 
 </style>
 
-<!-- The title -->  
+<!-- The title -->
+  <!-- <div id="firebaseui-auth-container"></div> -->
 
 <!-- Always shows a header, even in smaller screens. -->
 <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
@@ -216,7 +222,7 @@
       <span class="mdl-layout-title">Date Night</span>
       <!-- Add spacer, to align navigation to the right -->
       <div class="mdl-layout-spacer"></div>
-      
+
       </nav>
     </div>
   </header>
@@ -256,7 +262,7 @@
                 <label class="mdl-select__label" for="movie-genre">Movie Genre</label>
               </div>
             </form>
-            
+
             <form action="#">
               <div class="mdl-select mdl-js-select mdl-select--floating-label">
                 <select class="mdl-select__input" id="food-style" name="food-style">
@@ -314,9 +320,9 @@
                   </div>
                 </div>
               </div>
-   
+
               <div id="theater-map">
-                <!-- placeholder for map -->  
+                <!-- placeholder for map -->
                 <div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
                   <div class="mdl-tabs__tab-bar">
                     <a href="#listings-panel" class="mdl-tabs__tab is-active">Listings</a>
@@ -334,7 +340,7 @@
                   <h2>This is where the map of near by </h2>
                 </div>
               </div>
-            </div>  
+            </div>
             <!--  Food Section -->
             <div id="food-sect">
                 <div id="food-button">
@@ -375,11 +381,11 @@
                   </div>
                 </div>
                 <h2>This is where the food card will display</h2>
-              </div> 
-            </div>            
+              </div>
+            </div>
           </div>
         </div>
-      
+
         <div id="sign-in-status"></div>
         <div id="sign-in"></div>
         <div id="account-details"></div>
@@ -388,6 +394,8 @@
 </div>
 
 <!-- content container -->
+
+  <script src="script2.js"></script>
 
   </body>
 </html>
