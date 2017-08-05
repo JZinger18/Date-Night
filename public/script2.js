@@ -1,6 +1,5 @@
 $(document).ready(function() {
 
-console.log('hello')
 
 var config = {
   apiKey: "AIzaSyAvOeLPMADwYKvRC8-JLKGZbpIxY-hObgc",
@@ -64,8 +63,6 @@ $.ajax({
    //add gif
    imgPoster = imgUrl + movie_list[i].poster_path;
 
-
-
    movieImg.attr("src", imgPoster)
 
    movieCaptionDiv = $("<div class='caption'>")
@@ -75,6 +72,14 @@ $.ajax({
    movieCaptionP.text(movie_list[i].overview)
 
  }
+
+
+
+
+
+
+
+
 })
 
 // Maps API beginning
@@ -84,7 +89,7 @@ window.onload = getMyLocation;
 
 
 // Initialize Maps.
-var map 
+var map
 function getMyLocation() {
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(displayLocation);
@@ -143,7 +148,7 @@ function addNearByPlaces(latLng) {
     radius: "10000",
     type: ["restaurant"]
   };
-  
+
 
  nearByService.nearbySearch(request, searchNearBy);
   console.log("after nearbySearch");
@@ -199,7 +204,3 @@ google.maps.event.addListener(marker, "click", function() {
 }
 
 })
-
-
-
-
