@@ -1,6 +1,5 @@
 $(document).ready(function() {
 
-
 var config = {
   apiKey: "AIzaSyAvOeLPMADwYKvRC8-JLKGZbpIxY-hObgc",
   authDomain: "date-night-e35f7.firebaseapp.com",
@@ -10,7 +9,6 @@ var config = {
   messagingSenderId: "156260956808"
 };
 firebase.initializeApp(config);
-
 
 
 var user = firebase.auth().currentUser;
@@ -24,7 +22,6 @@ if (user != null) {
     console.log("  Photo URL: "+profile.photoURL);
   });
 }
-
 
 firebase.auth().onAuthStateChanged(function(user) {
   if (user) {
@@ -52,28 +49,44 @@ $.ajax({
     var limit = 4
     console.log(movie_list)
     for(var i = 0; i< limit; i++) {
-      //hold all content generated for movie poster
-     holder = $("<div class='col-md-3'>")
-     //create a thumbnail
-   movieDiv = $("<div class='thumbnail'>")
+      //mdl card to hold movie poster
+     holder = $("<div class='mdl-card mdl-shadow--2dp mdl-cell mdl-cell--3-col mdl-cell--6-col-tablet mdl-cell--4-col-phone mdl-grid'>")
+     //create a media slot for card in mdl for movie poster
+   movieDiv = $("<div class='mdl-card_media'>")
    //holds gif image
-   movieImg = $('<img class="gif" data-state="still img-responsive">');
+   movieImg = $('<img/>');
+   console.log(movieImg)
 
-   imgUrl = "http://image.tmdb.org/t/p/w300/"
+   imgUrl = "http://image.tmdb.org/t/p/w300/";
    //add gif
    imgPoster = imgUrl + movie_list[i].poster_path;
+   console.log(imgPoster)
+
+  //  componentHandler.upgradeElement(movieDiv);
+  //  componentHandler.upgradeElement(movieImg);
+  //  componentHandler.upgradeElement(movieImg);
 
    movieImg.attr("src", imgPoster)
 
-   movieCaptionDiv = $("<div class='caption'>")
+   $(movieDiv).append(movieImg);
+   $(holder).append(movieDiv)
+  $('#poster-target').append(holder);
 
-   movieCaptionP = $('<p>')
 
-   movieCaptionP.text(movie_list[i].overview)
+  //  if(!(typeof(componentHandler) == 'undefined')){
+  //      componentHandler.upgradeAllRegistered();
+  //  }
+
+
+
+
+  //  movieCaptionDiv = $("<div class='caption'>")
+   //
+  //  movieCaptionP = $('<p>')
+   //
+  //  movieCaptionP.text(movie_list[i].overview)
 
  }
-
-
 
 
 
@@ -83,124 +96,124 @@ $.ajax({
 })
 
 // Maps API beginning
-window.onload = getMyLocation;
-
+// window.onload = getMyLocation;
 //
-
-
-// Initialize Maps.
-var map
-function getMyLocation() {
-  if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(displayLocation);
-    console.log("getMyLocation");
-  } else {
-    alert("No GPS Available");
-    console.log("No GPS Available");
-  }
-}
-
-
-
-function displayLocation(position) {
-  // Longitude and Latitude values obtained from HTML 5 API.
-  console.log("entered displayLocation");
-  var longitude = position.coords.longitude;
-  var latitude = position.coords.latitude;
-
-// Creating new object for using longitude and latitude values with google map.
- var latLng = new google.maps.LatLng(latitude, longitude);
- console.log("about to call show map");
-
-showMap(latLng);
-
-console.log("after call to show map");
-
-
-addNearByPlaces(latLng);
- console.log("called nearbyplaces");
- //apiMarkerCreate(latLng);
- console.log("called marker create");
-}
-
-
-// Sets up map options like zoom ect.
-function showMap(latLng) {
-  var mapOptions = {
-    center: latLng,
-    zoom: 15,
-    mapTypeId: google.maps.MapTypeId.ROADMAP
-  };
-
- // Assigning the map div element.
-  map = new google.maps.Map(document.getElementById("map"), mapOptions);
-}
-
-
-
-
-// add nearby to map
-function addNearByPlaces(latLng) {
-  var nearByService = new google.maps.places.PlacesService(map);
-
- var request = {
-    location: latLng,
-    radius: "10000",
-    type: ["restaurant"]
-  };
-
-
- nearByService.nearbySearch(request, searchNearBy);
-  console.log("after nearbySearch");
-}
-
-function searchNearBy(results, status) {
-  console.log("Entered searchNearBy");
-  console.log(results);
-  console.log(status);
-  if (status == google.maps.places.PlacesServiceStatus.OK) {
-    console.log("PlacesServiceStatus.OK");
-    for (var i = 0; i < results.length; i++) {
-      var place = results[i];
-      apiMarkerCreate(place.geometry.location, place);
-    }
-  }
-}
-
-
-function apiMarkerCreate(latLng, placeResult) {
-  console.log("Entered apiMarkerCreate");
-  console.log(latLng);
-  console.log(placeResult);
-  var markerOptions = {
-    position: latLng,
-    map: map,
-    animation: google.maps.Animation.DROP,
-    clickable: true
-  }
-// Set up marker object to mark the location on the map.
-  var marker = new google.maps.Marker(markerOptions);
-
- if (placeResult) {
-  var content = placeResult.name+"<br/>"+placeResult.vicinity;
-  windowInfoCreate(marker, latLng, content);
-}
-
-}
-
-
-function windowInfoCreate(marker, latLng, content) {
- var infoWindowOptions = {
-   content: content,
-   position: latLng
- };
-
-var infoWindow = new google.maps.InfoWindow(infoWindowOptions);
-
-google.maps.event.addListener(marker, "click", function() {
-  infoWindow.open(map);
-});
-
-}
+// //
+//
+//
+// // Initialize Maps.
+// var map
+// function getMyLocation() {
+//   if (navigator.geolocation) {
+//     navigator.geolocation.getCurrentPosition(displayLocation);
+//     console.log("getMyLocation");
+//   } else {
+//     alert("No GPS Available");
+//     console.log("No GPS Available");
+//   }
+// }
+//
+//
+//
+// function displayLocation(position) {
+//   // Longitude and Latitude values obtained from HTML 5 API.
+//   console.log("entered displayLocation");
+//   var longitude = position.coords.longitude;
+//   var latitude = position.coords.latitude;
+//
+// // Creating new object for using longitude and latitude values with google map.
+//  var latLng = new google.maps.LatLng(latitude, longitude);
+//  console.log("about to call show map");
+//
+// showMap(latLng);
+//
+// console.log("after call to show map");
+//
+//
+// addNearByPlaces(latLng);
+//  console.log("called nearbyplaces");
+//  //apiMarkerCreate(latLng);
+//  console.log("called marker create");
+// }
+//
+//
+// // Sets up map options like zoom ect.
+// function showMap(latLng) {
+//   var mapOptions = {
+//     center: latLng,
+//     zoom: 15,
+//     mapTypeId: google.maps.MapTypeId.ROADMAP
+//   };
+//
+//  // Assigning the map div element.
+//   map = new google.maps.Map(document.getElementById("map"), mapOptions);
+// }
+//
+//
+//
+//
+// // add nearby to map
+// function addNearByPlaces(latLng) {
+//   var nearByService = new google.maps.places.PlacesService(map);
+//
+//  var request = {
+//     location: latLng,
+//     radius: "10000",
+//     type: ["restaurant"]
+//   };
+//
+//
+//  nearByService.nearbySearch(request, searchNearBy);
+//   console.log("after nearbySearch");
+// }
+//
+// function searchNearBy(results, status) {
+//   console.log("Entered searchNearBy");
+//   console.log(results);
+//   console.log(status);
+//   if (status == google.maps.places.PlacesServiceStatus.OK) {
+//     console.log("PlacesServiceStatus.OK");
+//     for (var i = 0; i < results.length; i++) {
+//       var place = results[i];
+//       apiMarkerCreate(place.geometry.location, place);
+//     }
+//   }
+// }
+//
+//
+// function apiMarkerCreate(latLng, placeResult) {
+//   console.log("Entered apiMarkerCreate");
+//   console.log(latLng);
+//   console.log(placeResult);
+//   var markerOptions = {
+//     position: latLng,
+//     map: map,
+//     animation: google.maps.Animation.DROP,
+//     clickable: true
+//   }
+// // Set up marker object to mark the location on the map.
+//   var marker = new google.maps.Marker(markerOptions);
+//
+//  if (placeResult) {
+//   var content = placeResult.name+"<br/>"+placeResult.vicinity;
+//   windowInfoCreate(marker, latLng, content);
+// }
+//
+// }
+//
+//
+// function windowInfoCreate(marker, latLng, content) {
+//  var infoWindowOptions = {
+//    content: content,
+//    position: latLng
+//  };
+//
+// var infoWindow = new google.maps.InfoWindow(infoWindowOptions);
+//
+// google.maps.event.addListener(marker, "click", function() {
+//   infoWindow.open(map);
+// });
+//
+// }
 
 })
