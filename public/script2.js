@@ -55,8 +55,8 @@ $.ajax({
    movieDiv = $("<div class='mdl-card_media'>")
    //holds gif image
    movieImg = $('<img/>');
-   console.log(movieImg)
-   overviewDiv = $('<div class="side mdl-card__supporting-text">')
+
+  //  overviewDiv = $('<div class="side mdl-card__supporting-text">')
 
 
 
@@ -183,6 +183,30 @@ function addNearByPlaces(latLng) {
 function searchNearBy(results, status) {
   console.log("Entered searchNearBy");
   console.log(results);
+
+    var eats = results;
+    console.log(eats)
+    var limit2 = 10
+    for(var y = 0; y < limit2; y++) {
+      // name = eats[i].name
+      name = eats[y].name;
+      console.log(name);
+
+
+    list = $("<ul class='mdl-list'>")
+      //create a media slot for card in mdl for movie poster
+    listItems = $("<li class='mdl-list__item'>")
+    //holds gif image
+    item = $("<span class='mdl-list__item-primary-content'>");
+    text = name
+
+    $(item).text(text)
+    $(listItems).append(item)
+    $(list).append(listItems)
+    $('#rest').append(list)
+
+
+  }
   console.log(status);
   if (status == google.maps.places.PlacesServiceStatus.OK) {
     console.log("PlacesServiceStatus.OK");
@@ -198,6 +222,12 @@ function apiMarkerCreate(latLng, placeResult) {
   console.log("Entered apiMarkerCreate");
   console.log(latLng);
   console.log(placeResult);
+
+
+
+
+
+
   var markerOptions = {
     position: latLng,
     map: map,

@@ -12,7 +12,31 @@
 
   </head>
   <body>
-    <div id="firebaseui-auth-container"></div>
+
+    <div class = 'container'>
+      <div class = 'row'>
+        <div class ='col-md-12 text-center'>
+            <img class='mx-auto d-block' src='data:image/png;base64,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' />
+          </div>
+
+        </div>
+      </div>
+
+
+
+
+      <div class = 'row'>
+        <div class= 'col-md-12'>
+              <div id="firebaseui-auth-container"></div>
+        </div>
+
+      </div>
+
+
+
+
+
+        </div>
 
 
 <script src="script.js"></script>

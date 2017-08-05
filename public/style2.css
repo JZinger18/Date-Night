@@ -1,6 +1,14 @@
 #map {
-	height: 750px;
-	width:  750px;
+	height: 450px;
+	width: 450px;
+}
+
+.mdl-layout__header {
+	background-color: #546e7a;
+}
+
+body {
+	background-color: #cfd8dc;
 }
 
 /*.mdl-card_media {
