@@ -60,7 +60,7 @@ $.ajax({
 
 
 
-   imgUrl = "http://image.tmdb.org/t/p/w300/";
+   imgUrl = "https://image.tmdb.org/t/p/w300/";
    //add gif
    imgPoster = imgUrl + movie_list[i].poster_path;
    movieText = movie_list[i].overview
