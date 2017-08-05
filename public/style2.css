@@ -1,7 +1,45 @@
 #map {
-	height: 350px;
-	width:  250px;
+	height: 750px;
+	width:  750px;
 }
+
+/*.mdl-card_media {
+       height: 450px;
+       position: absolute;
+       transform-style: preserve-3d;
+       transition: all 1s ease-in-out;
+       width: 100%;
+    }
+
+.mdl-card_media:hover {
+      transform: rotateY(180deg);
+
+}
+
+.mdl-card_media .side  {
+   backface-visibility: hidden;
+   border-radius: 6px;
+   height: 100%;
+   position: absolute;
+   overflow: hidden;
+   width: 100%;
+   color: pink;
+}
+
+ .mdl-card_media .mdl-card__supporting-text {
+       background-color: black;
+       color: white;
+       line-height: 150px;
+       text-align: center;
+       transform: rotateY(180deg);
+}
+      .side .mdl-card__supporting-text {
+       background-color: black;
+       color: pink;
+       line-height: 150px;
+       text-align: center;
+       transform: rotateY(180deg);
+}*/
 
 /*img {
 	width:350px;
